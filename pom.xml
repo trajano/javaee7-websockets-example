@@ -13,7 +13,6 @@
 	</parent>
 	<modules>
 		<module>javaee7-websockets-web</module>
-		<module>javaee7-websockets</module>
 	</modules>
 </project>
 
