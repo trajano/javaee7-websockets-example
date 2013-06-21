@@ -18,7 +18,13 @@
 						+ loc.pathname.substring(0, loc.pathname
 								.lastIndexOf('/')) + '/echo';
 
-				return new WebSocket(wsUri);
+				var webSocket = new WebSocket(wsUri);
+				window.onbeforeunload = function() {
+					websocket.onclose = function() {
+					}; // disable onclose handler first
+					websocket.close();
+				};
+				return webSocket;
 			})
 
 	.directive('echoClient', function() {
