@@ -5,8 +5,8 @@
 
 	.factory(
 			'echoSocket',
-			function() {
-				var loc = window.location;
+			function($window) {
+				var loc = $window.location;
 				var wsUri;
 				if (loc.protocol === "https:") {
 					wsUri = "wss:";
@@ -19,7 +19,7 @@
 								.lastIndexOf('/')) + '/echo';
 
 				var webSocket = new WebSocket(wsUri);
-				window.onbeforeunload = function() {
+				$window.onbeforeunload = function() {
 					websocket.onclose = function() {
 					}; // disable onclose handler first
 					websocket.close();
