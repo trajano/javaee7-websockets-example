@@ -1,0 +1,26 @@
+<div class="well">
+	<form>
+		Message: <input data-ng-model="textToSend" /> <select
+			data-ng-model="toSessionId" data-ng-options="sessionId for sessionId in sessionIds">
+			<option value="">Everyone</option>
+		</select>
+		<button data-ng-click="sendMessage()" class="btn">Send
+			message</button>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Direction</th>
+					<th>Message</th>
+					<th>From</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-ng-repeat="message in messages">
+					<td>{{message.direction}}</td>
+					<td>{{message.text}}</td>
+					<td>{{message.from}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</div>
